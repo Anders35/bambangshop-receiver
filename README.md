@@ -91,3 +91,9 @@ This is the place for you to write reflections:
 2. Rust does not allow direct mutation of static variables because it enforces strict rules about data safety and avoids potential issues with data races or undefined behavior. Static variables in Rust are required to be immutable unless wrapped in a thread-safe synchronization type like RwLock<> or Mutex<>.
 
 #### Reflection Subscriber-2
+
+1. Yes, I learned how to structure my Rust application in a modular way, focusing on how different components interact with each other. Additionally, I understood the use of asynchronous programming via tokio which facilitates non-blocking operations and improves the responsiveness of the system.
+
+2. Since subscribers can independently register or unregister their interest based on their product type, I can plug in new subscribers without modifying the existing system. When I tested the notification system by spawning multiple instances of receivers, each was able to subscribe to notifications seamlessly. Each instance can independently register as a subscriber which makes the architecture flexible and robust against multiple instances.
+
+3. I have tried creating my own tests and enhancing documentation within my Postman collection. This feature is useful for my current work because it allows me to write automated tests that validate the functionality of my API endpoints. Additionally, I can provide clear information to my team about how to use the endpoints, what inputs are required, and what responses to expect by documenting my API directly in Postman.
