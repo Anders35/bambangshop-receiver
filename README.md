@@ -86,4 +86,8 @@ This is the place for you to write reflections:
 
 #### Reflection Subscriber-1
 
+1. We used `RwLock<>` because it allows multiple readers or a single writer to access the vector in a thread-safe manner. In this case, the `Vec` of notifications is shared across different threads and `RwLock<>` ensures that when the add function writes to the `Vec`, no other thread is reading or writing to it at the same time. On the other hand, `Mutex<>` allows only one thread to access the resource at a time. In this case, since reading the notifications is much more frequent than writing them, allowing multiple readers concurrently makes the system more efficient. If we had used a `Mutex<>`, readers would block each other unnecessarily, even though they don’t modify the vector which could reduce performance under high read loads.
+
+2. Rust does not allow direct mutation of static variables because it enforces strict rules about data safety and avoids potential issues with data races or undefined behavior. Static variables in Rust are required to be immutable unless wrapped in a thread-safe synchronization type like RwLock<> or Mutex<>.
+
 #### Reflection Subscriber-2
